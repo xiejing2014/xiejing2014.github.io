@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://xiejing2014.github.io/2018/05/12/clearcase%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2018-05-16T10:16:33.321Z</lastmod>
+    <data>
+        <display>
+        <title>clearcase常用命令</title>
+        <pubTime>2018-05-12T12:37:00.000Z</pubTime>
+        
+        <tag>clearcase</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件版本管理" url="http://xiejing2014.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xiejing2014.github.io/2018/05/09/%E8%87%B4%E6%A9%A1%E6%A0%91/</loc>
     <lastmod>2018-05-16T09:18:40.621Z</lastmod>
     <data>
@@ -17,26 +37,6 @@
            
              
               <breadCrumb title="杂记" url="http://xiejing2014.github.io/categories/%E6%9D%82%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xiejing2014.github.io/2018/05/12/clearcase%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2018-05-15T08:19:42.185Z</lastmod>
-    <data>
-        <display>
-        <title>clearcase常用命令</title>
-        <pubTime>2018-05-12T12:37:00.000Z</pubTime>
-        
-        <tag>clearcase</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件版本管理" url="http://xiejing2014.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
           
         </display>
     </data>
