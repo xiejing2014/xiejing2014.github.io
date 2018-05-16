@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="clearcase," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="莫失莫忘" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="常规操作1.最基本的操作cleartool co -nc xxx.cppcleartool ci -nc xxx.cpp 2.查看自己总共co了多少文件cleartool lscheckout -cview -me -avobs 3.最有用的命令cleartool man xxxcleartool help xxx 4.新增目录和文件cleartool mkdir -c comment new_d">
+<meta name="keywords" content="clearcase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="clearcase常用命令">
+<meta property="og:url" content="http://xiejing2014.github.io/2018/05/12/clearcase常用命令/index.html">
+<meta property="og:site_name" content="莫失莫忘">
+<meta property="og:description" content="常规操作1.最基本的操作cleartool co -nc xxx.cppcleartool ci -nc xxx.cpp 2.查看自己总共co了多少文件cleartool lscheckout -cview -me -avobs 3.最有用的命令cleartool man xxxcleartool help xxx 4.新增目录和文件cleartool mkdir -c comment new_d">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-15T08:19:42.185Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="clearcase常用命令">
+<meta name="twitter:description" content="常规操作1.最基本的操作cleartool co -nc xxx.cppcleartool ci -nc xxx.cpp 2.查看自己总共co了多少文件cleartool lscheckout -cview -me -avobs 3.最有用的命令cleartool man xxxcleartool help xxx 4.新增目录和文件cleartool mkdir -c comment new_d">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiejing2014.github.io/2018/05/12/clearcase常用命令/"/>
+
+
+
+
+
+  <title>clearcase常用命令 | 莫失莫忘</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c58c8b74709932c3be4df716039aa1e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">莫失莫忘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifestyle">
+          <a href="/lifestyle" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            闲散生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiejing2014.github.io/2018/05/12/clearcase常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不出名的刀客">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1105790270.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莫失莫忘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">clearcase常用命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T20:37:00+08:00">
+                2018-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件版本管理/" itemprop="url" rel="index">
+                    <span itemprop="name">软件版本管理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,735 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h1><h2 id="1-最基本的操作"><a href="#1-最基本的操作" class="headerlink" title="1.最基本的操作"></a>1.最基本的操作</h2><p>cleartool co -nc xxx.cpp<br>cleartool ci -nc xxx.cpp</p>
+<h2 id="2-查看自己总共co了多少文件"><a href="#2-查看自己总共co了多少文件" class="headerlink" title="2.查看自己总共co了多少文件"></a>2.查看自己总共co了多少文件</h2><p>cleartool lscheckout -cview -me -avobs</p>
+<h2 id="3-最有用的命令"><a href="#3-最有用的命令" class="headerlink" title="3.最有用的命令"></a>3.最有用的命令</h2><p>cleartool man xxx<br>cleartool help xxx</p>
+<h2 id="4-新增目录和文件"><a href="#4-新增目录和文件" class="headerlink" title="4.新增目录和文件"></a>4.新增目录和文件</h2><p>cleartool mkdir -c comment new_dir<br>cleartool mkelem -c comment new_file.cpp</p>
+<h2 id="5-放弃co某个文件"><a href="#5-放弃co某个文件" class="headerlink" title="5.放弃co某个文件"></a>5.放弃co某个文件</h2><p>cleartool unco -keep file.cpp           //保留当前所改动的文件<br>cleartool unco -rm   file.cpp</p>
+<h2 id="6-主线、分支文件合并"><a href="#6-主线、分支文件合并" class="headerlink" title="6.主线、分支文件合并"></a>6.主线、分支文件合并</h2><p>//查找需要合并的文件<br>cleartool findmerge . -fversion /main/xxxx_path -print<br>//比较文件不同<br>cleartool diff file.cpp file.cpp@@/main/xxxx_path/LATEST<br>//查看最新版本<br>cleartool lsvtree file.cpp<br>//合并<br>cleartool merge -to file.cpp file.cpp@@/main/xxxx_path/LATEST file.cpp@@/main/LATEST</p>
+<h2 id="7-标签相关"><a href="#7-标签相关" class="headerlink" title="7.标签相关"></a>7.标签相关</h2><p>//新建标签<br>cleartool mklbtype -nc TEST_LABEL<br>//给文件打标签<br>cleartool mklabel -r TEST_LABEL file.cpp<br>//删除标签<br>cleartool rmtype lbtype:TEST_LABEL<br>//给所有打上TEST_LABEL标签的文件打上TEST_LABEL2标签<br>cleartool mklabel -replace -version /main/TEST_LABEL TEST_LABEL2 *<br>//查找打上TEST_LABEL标签的所有文件<br>cleartool find . -version “lbtype(TEST_LABEL)” -print<br>//查找打上TEST_LABEL和TEST_LABEL2标签的文件<br>cleartool find . -element ‘lbtype_sub(TEST_LABEL) &amp;&amp; lbtype_sub(TEST_LABEL2)’ -print</p>
+<h2 id="8-将整个目录导入clearcase"><a href="#8-将整个目录导入clearcase" class="headerlink" title="8.将整个目录导入clearcase"></a>8.将整个目录导入clearcase</h2><p>clearfsimport -recurse /xxx/xxx/xxx/src /view/zhuj/home/vobs/cc_account<br>/xxx/xxx/xxx/src目录（包括此目录下的所有目录和文件）被导入/view/zhuj/home/vobs/cc_account中（/view/zhuj/home/vobs/cc_account/src）</p>
+<h1 id="clearcase常用命令集锦"><a href="#clearcase常用命令集锦" class="headerlink" title="clearcase常用命令集锦"></a>clearcase常用命令集锦</h1><h2 id="1-将整个目录导入clearcase"><a href="#1-将整个目录导入clearcase" class="headerlink" title="1.将整个目录导入clearcase"></a>1.将整个目录导入clearcase</h2><p>clearfsimport -r‘源路径’ ‘目标路径’</p>
+<h2 id="2-加锁"><a href="#2-加锁" class="headerlink" title="2.加锁"></a>2.加锁</h2><p>find . -name ‘<em>.</em>‘ -exec ‘cleartool lock nuser userame1,username2 “%CLEARCASE_PN%”‘</p>
+<h2 id="3．解锁"><a href="#3．解锁" class="headerlink" title="3．解锁"></a>3．解锁</h2><p>find . -name ‘<em>.</em>‘ -exec ‘cleartool unlock “%CLEARCASE_PN%”‘</p>
+<h2 id="4-转换格式"><a href="#4-转换格式" class="headerlink" title="4.转换格式"></a>4.转换格式</h2><p>chtype -f compressed_file “fileName”</p>
+<h2 id="5-查看VOB的基本信息和UUID"><a href="#5-查看VOB的基本信息和UUID" class="headerlink" title="5.查看VOB的基本信息和UUID"></a>5.查看VOB的基本信息和UUID</h2><p>des -l vob:.</p>
+<h2 id="6-删除视图"><a href="#6-删除视图" class="headerlink" title="6.删除视图"></a>6.删除视图</h2><p>rmview -uuid “UUID”</p>
+<h2 id="7-删除lost-found"><a href="#7-删除lost-found" class="headerlink" title="7.删除lost+found"></a>7.删除lost+found</h2><p>find . -name ‘<em>.</em>‘ -exec ‘cleartool rmelem -f “%CLEARCASE_PN%”‘</p>
+<h2 id="8-查询某一天的修改记录"><a href="#8-查询某一天的修改记录" class="headerlink" title="8.查询某一天的修改记录"></a>8.查询某一天的修改记录</h2><p>cleartool lshis -r -since 07-dec</p>
+<h2 id="9-最基本的操作"><a href="#9-最基本的操作" class="headerlink" title="9.最基本的操作"></a>9.最基本的操作</h2><p>cleartool co -nc filename<br>cleartool ci -nc filename</p>
+<h2 id="10-查看自己总共co了多少文件"><a href="#10-查看自己总共co了多少文件" class="headerlink" title="10.查看自己总共co了多少文件"></a>10.查看自己总共co了多少文件</h2><p>cleartool lscheckout -cview –me -vobs</p>
+<h2 id="11-make目录和文件"><a href="#11-make目录和文件" class="headerlink" title="11.make目录和文件"></a>11.make目录和文件</h2><p>cleartool mkdir -c comment newdirectory<br>cleartool mkelem -c comment newfilename</p>
+<h2 id="12-主线、分支文件合并"><a href="#12-主线、分支文件合并" class="headerlink" title="12.主线、分支文件合并"></a>12.主线、分支文件合并</h2><p>//查找需要合并的文件<br>cleartool findmerge . -fversion /main/TEST_Path -print<br>//比较文件不同<br>cleartool diff filename [url=mailto:file.cpp@@/main/xxxx_path/LATEST]filename@@/main/TEST_Path/LATEST<br>//查看最新版本<br>cleartool lsvtree filename<br>//合并<br>cleartool merge -to filename [url=mailto:file.cpp@@/main/xxxx_path/LATEST]filename @@/main/TEST_path/LATEST [url=mailto:file.cpp@@/main/LATEST]filename @@/main/LATEST</p>
+<h2 id="13-标签相关"><a href="#13-标签相关" class="headerlink" title="13.标签相关"></a>13.标签相关</h2><p>cleartool mklbtype -nc TEST_LABEL<br>cleartool mklabel -r TEST_LABEL filename<br>cleartool rmtype lbtype:TEST_LABEL<br>//给所有打上TEST_LABEL标签的文件打上TEST_LABEL标签<br>cleartool mklabel -replace -version /main/TEST_LABEL TEST_LABEL *<br>//查找打上TEST_LABEL标签的所有文件<br>cleartool find . -version “lbtype(TEST_LABEL)” -print<br>//查找打上TEST_LABEL和TEST_LABEL1标签的文件<br>cleartool find . -element ‘lbtype_sub(TEST_LABEL) &amp;&amp; lbtype_sub(TEST_LABEL1)’ -print</p>
+<h2 id="14-察看某目录下的文件"><a href="#14-察看某目录下的文件" class="headerlink" title="14.察看某目录下的文件"></a>14.察看某目录下的文件</h2><p>ls</p>
+<h2 id="15-man-help命令"><a href="#15-man-help命令" class="headerlink" title="15.man/help命令"></a>15.man/help命令</h2><p>cleartool man xxx<br>cleartool help xxx</p>
+<h2 id="16-放弃co某个文件"><a href="#16-放弃co某个文件" class="headerlink" title="16.放弃co某个文件"></a>16.放弃co某个文件</h2><p>cleartool unco -keep filename<br>cleartool unco -rm filename</p>
+<h2 id="17-更改VOB的Owner"><a href="#17-更改VOB的Owner" class="headerlink" title="17.更改VOB的Owner:"></a>17.更改VOB的Owner:</h2><p>cleartool protectvob –chown root /vob/vob.vbs</p>
+<h2 id="18-更改VOB的Group"><a href="#18-更改VOB的Group" class="headerlink" title="18. 更改VOB的Group:"></a>18. 更改VOB的Group:</h2><p>cleartool protectvob –chgrp alluser /vob/vob.vbs</p>
+<h2 id="19-增加Additional-Group"><a href="#19-增加Additional-Group" class="headerlink" title="19.增加Additional Group:"></a>19.增加Additional Group:</h2><p>cleartool protectvob –add_group group1 /vob/vob.vbs</p>
+<h2 id="20-删除Additional-Group"><a href="#20-删除Additional-Group" class="headerlink" title="20.删除Additional Group:"></a>20.删除Additional Group:</h2><p>cleartool protectvob –delete_group group1 /vob/vob.vbs</p>
+<h2 id="21-更改group、owner、mod"><a href="#21-更改group、owner、mod" class="headerlink" title="21. 更改group、owner、mod"></a>21. 更改group、owner、mod</h2><p>protect -r -chgrp groupname–chown username -chmod 770 .</p>
+<h2 id="22-创建VOB"><a href="#22-创建VOB" class="headerlink" title="22.创建VOB"></a>22.创建VOB</h2><p>cleartool mkvob -tag /vobtags/test_code -c “Test” “D:\Data\Tets.vbs”</p>
+<h2 id="23-Mount-vob"><a href="#23-Mount-vob" class="headerlink" title="23. Mount vob"></a>23. Mount vob</h2><p>Cleartool mount /vobtags/vob </p>
+<h2 id="24-创建视图"><a href="#24-创建视图" class="headerlink" title="24. 创建视图"></a>24. 创建视图</h2><p>cleartool mkview –tag test /ccvob/views/test.vws </p>
+<h2 id="25-设置当前视图"><a href="#25-设置当前视图" class="headerlink" title="25. 设置当前视图"></a>25. 设置当前视图</h2><p>cleartool setview test</p>
+<h2 id="26．设置当前的activity"><a href="#26．设置当前的activity" class="headerlink" title="26．设置当前的activity"></a>26．设置当前的activity</h2><p>cleartool setactivity activityname</p>
+<h2 id="27-Check-out"><a href="#27-Check-out" class="headerlink" title="27. Check out"></a>27. Check out</h2><p>Check out一个文件</p>
+<p>Cleartool checkout [-reserve][-unreserve] filename</p>
+<p>Check out前目录</p>
+<p>Cleartool checkout .</p>
+<p>Check out当前目录下所有文件</p>
+<p>Cleartool Checkout –nc <em>.</em></p>
+<p>Check out当前目录下所有的文件和目录中的文件</p>
+<p>cleartool find . $file -exec ‘cleartool checkout -nc $CLEARCASE_PN’ </p>
+<h2 id="28-Check-in"><a href="#28-Check-in" class="headerlink" title="28. Check in"></a>28. Check in</h2><p>Check in 一个文件</p>
+<p>Cleartool checkin filename</p>
+<p>Check in 当前目录<br>Cleartool checkin .</p>
+<p>Check in 当前目录下所有文件.</p>
+<p>Cleartool Checkin –nc <em>.</em></p>
+<p>Check in当前目录下所有的文件和目录中的文件</p>
+<p>cleartool find . $file -exec ‘cleartool checkin -nc –ide $CLEARCASE_PN’</p>
+<p>以上内容来自：<a href="http://hi.baidu.com/is%CC%EC%B2%C5/blog/item/36bfbfc83cced1117f3e6fa0.html" target="_blank" rel="noopener">http://hi.baidu.com/is%CC%EC%B2%C5/blog/item/36bfbfc83cced1117f3e6fa0.html</a></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>创建view：clt mkview -tag view_abcd /view_store/view_abcd.vws<br>设置view: clt setview view_abcd<br>编辑config specification: clt edcs</p>
+<p>创建branch type：clt mkbrtype dbg_branch1_comments<br>在某个文件的当前branch上， 拉出一个branch：<br>clt mkbranch dbg_branch1_comments filename.c</p>
+<p>now you have make branch on the file, and checked it out.<br>you can edit it with gvim.<br>After changed codes, you can complie it successfully, and test the result, you can check it in.<br>clt ci filename.c<br>If you want to check out it again:<br>clt co filename.c</p>
+<p>To change the branch name to a formula name you can use the command:<br>clt rename brtype:dbg_branch1_comments brtype:crnumber_branch1_comments</p>
+<p>To see the version tree of a file:<br>clt lsvtree -g filename.c</p>
+<p>To see which files is included in a branch, you can edit a script like this find_branch.sh:</p>
+<p>echo “$1”<br>cleartool find -avobs -element “brtype(“$1”)” -nxn -print | xargs cleart<br>ool ls -s|grep “$1”</p>
+<p>To compare files, I write a useful script file mydiff.</p>
+<p>You can use xcc&amp; to open graphic clearcase. So you can do most thing through the menu.</p>
+<p>以上内容来自：<a href="http://www.diybl.com/course/4_webprogram/asp.net/netjs/20071020/78573.html" target="_blank" rel="noopener">http://www.diybl.com/course/4_webprogram/asp.net/netjs/20071020/78573.html</a></p>
+<h1 id="clearcase实用命令"><a href="#clearcase实用命令" class="headerlink" title="clearcase实用命令"></a>clearcase实用命令</h1><p>查找分支上的文件<br>find . -branch brtype(branchname) -print<br>创建分支<br>mkbrtype -c “comment” branchname<br>创建Label<br>mklbtype -c “comment” labelname<br>用于 cleartool find 查询:<br>cleartool find -all -version “lbtype(REL1)” -print<br>find . -version ‘lbtype(LABEL)’ -print<br>锁分支命令<br>lock brtype:branchname<br>创建trigger<br>trigger已存在<br>mktrtype mktrtype -replace -element -all -preop mkelem -nusers shiquan -exec <a href="http://www.cnblogs.com/samcn/admin/file://192.168.1.5/cc_trigger/false.bat" target="_blank" rel="noopener">http://www.cnblogs.com/samcn/admin/file://192.168.1.5/cc_trigger/false.bat</a> NO_RM_MK<br>trigger不存在<br>mktrtype mktrtype -element -all -preop mkelem -nusers shiquan -exec <a href="http://www.cnblogs.com/samcn/admin/file://192.168.1.5/cc_trigger/false.bat" target="_blank" rel="noopener">http://www.cnblogs.com/samcn/admin/file://192.168.1.5/cc_trigger/false.bat</a> NO_RM_MK<br>日常开发人员常用命令</p>
+<h1 id="开发人员常用命令"><a href="#开发人员常用命令" class="headerlink" title="开发人员常用命令"></a>开发人员常用命令</h1><h2 id="1-建立vob"><a href="#1-建立vob" class="headerlink" title="1. 建立vob"></a>1. 建立vob</h2><p>mkvob –tag /vobtags/vob1 –c “ VOB for project1” /vobstore/vob1.vbs</p>
+<h2 id="2-Mount-vob"><a href="#2-Mount-vob" class="headerlink" title="2. Mount vob"></a>2. Mount vob</h2><p>Cleartool mount /vobtags/vob1</p>
+<h2 id="3-创建视图"><a href="#3-创建视图" class="headerlink" title="3. 创建视图"></a>3. 创建视图</h2><p>cleartool mkview –tag test1 /ccvob/views/test1.vws</p>
+<h2 id="4-设置当前视图"><a href="#4-设置当前视图" class="headerlink" title="4. 设置当前视图"></a>4. 设置当前视图</h2><p>cleartool setview test1</p>
+<h2 id="5-在VOB的根目录下到入数据："><a href="#5-在VOB的根目录下到入数据：" class="headerlink" title="5. 在VOB的根目录下到入数据："></a>5. 在VOB的根目录下到入数据：</h2><p>clearfsimport –recurse –c “ comments “ /home/setup/* . ，注意命令的最后为圆点，表示当前目录。</p>
+<h2 id="6-改变VOB的Owner"><a href="#6-改变VOB的Owner" class="headerlink" title="6. 改变VOB的Owner:"></a>6. 改变VOB的Owner:</h2><p>cleartool protectvob –chown root /vobstore/vob1.vbs</p>
+<h2 id="7-改变VOB的Group"><a href="#7-改变VOB的Group" class="headerlink" title="7. 改变VOB的Group:"></a>7. 改变VOB的Group:</h2><p>cleartool protectvob –chgrp alluser /vobstore/vob1.vbs</p>
+<h2 id="8-增加Additional-Group"><a href="#8-增加Additional-Group" class="headerlink" title="8. 增加Additional Group:"></a>8. 增加Additional Group:</h2><p>cleartool protectvob –add_group group1 /vobstore/vob1.vbs</p>
+<h2 id="9-删除Additional-Group"><a href="#9-删除Additional-Group" class="headerlink" title="9. 删除Additional Group:"></a>9. 删除Additional Group:</h2><p>cleartool protectvob –delete_group group1 /vobstore/vob1.vbs<br>修改vob中数据的权限信息</p>
+<h2 id="10-将jmccboss-VOB-中所有元素Owner-改成ccadmin，Group改成jmccboss"><a href="#10-将jmccboss-VOB-中所有元素Owner-改成ccadmin，Group改成jmccboss" class="headerlink" title="10. 将jmccboss VOB 中所有元素Owner 改成ccadmin，Group改成jmccboss:"></a>10. 将jmccboss VOB 中所有元素Owner 改成ccadmin，Group改成jmccboss:</h2><p>Cleartool protect –chown ccadmin –chgrp jmccboss .<br>.为vob根目录</p>
+<h2 id="11-将jmccboss-VOB-中所有元素权限"><a href="#11-将jmccboss-VOB-中所有元素权限" class="headerlink" title="11. 将jmccboss VOB 中所有元素权限"></a>11. 将jmccboss VOB 中所有元素权限</h2><p> 改成对ccadmin（rwx），jmccboss(rwx)，其他VOB附属组成员（r-x）:<br>例： Cleartool protect –recurse –chmod 775 . ，</p>
+<h2 id="12-Mount-vob"><a href="#12-Mount-vob" class="headerlink" title="12. Mount vob"></a>12. Mount vob</h2><p>Cleartool mount /vobtags/vob1</p>
+<h2 id="13-创建视图"><a href="#13-创建视图" class="headerlink" title="13. 创建视图"></a>13. 创建视图</h2><p>cleartool mkview –tag test1 /ccvob/views/test1.vws</p>
+<h2 id="14-设置当前视图"><a href="#14-设置当前视图" class="headerlink" title="14. 设置当前视图"></a>14. 设置当前视图</h2><p>cleartool setview test1</p>
+<h2 id="15-在VOB的根目录下到入数据："><a href="#15-在VOB的根目录下到入数据：" class="headerlink" title="15. 在VOB的根目录下到入数据："></a>15. 在VOB的根目录下到入数据：</h2><p>clearfsimport –recurse –c “ comments “ /home/setup/* . ，注意命令的最后为圆点，表示当前目录。</p>
+<h2 id="16-Check-out"><a href="#16-Check-out" class="headerlink" title="16. Check out"></a>16. Check out</h2><p>Cleartool checkout [-reserve][-unreserve] b.c    Check out一个文件<br>Cleartool checkout .   Check out当前目录<br>Cleartool Checkout –nc <em>.</em>    Check out当前目录下所有文件<br>cleartool find . $file -exec ‘cleartool checkout -nc $CLEARCASE_PN’<br>Check out当前目录下所有的文件和目录中的文件</p>
+<h2 id="17-Check-in"><a href="#17-Check-in" class="headerlink" title="17. Check in"></a>17. Check in</h2><p>Cleartool checkin b.c    Check in 一个文件<br>Cleartool checkin .    Check in 当前目录<br>Cleartool Checkin –nc <em>.</em>   Check in 当前目录下所有文件.<br>cleartool find . $file -exec ‘cleartool checkin -nc –ide $CLEARCASE_PN’<br>Check in当前目录下所有的文件和目录中的文件 </p>
+<h2 id="18-建立一个snapshot-view"><a href="#18-建立一个snapshot-view" class="headerlink" title="18. 建立一个snapshot view"></a>18. 建立一个snapshot view</h2><p>cleartool mkview –tag pat_2_snapshot_view –snapshot /viewstore/pat/myviews.vws</p>
+<h2 id="19-编辑config-spe"><a href="#19-编辑config-spe" class="headerlink" title="19. 编辑config spe"></a>19. 编辑config spe</h2><p>Cleartool edcs</p>
+<h2 id="20-更新snapshot-view"><a href="#20-更新snapshot-view" class="headerlink" title="20. 更新snapshot view"></a>20. 更新snapshot view</h2><p>cleartool update pat_2_snapshot_view</p>
+<h2 id="21．设置当前的activity"><a href="#21．设置当前的activity" class="headerlink" title="21．设置当前的activity"></a>21．设置当前的activity</h2><p>cleartool setactivity activityname<br>      gaibian leixing: chtype binary_delta_file Estonian.r<br>错误 :clearfsimport: Error: Trouble was encountered importing the following elements:<br>        D:\work\shiquan_study\Broadcom070122\BCM_R2.10_A1\mmi\design\gui\res\ffs_preload\CD_5_2_6.dm</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章不错的话，也可以支持一下哦~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/1105792176.jpg" alt="不出名的刀客 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+    
+    <div>
+	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/clearcase/" rel="tag"><i class="fa fa-tag"></i> clearcase</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/09/致橡树/" rel="next" title="致橡树">
+                <i class="fa fa-chevron-left"></i> 致橡树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjQ0Mi8xMjk3Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1105790270.jpg"
+                alt="不出名的刀客" />
+            
+              <p class="site-author-name" itemprop="name">不出名的刀客</p>
+              <p class="site-description motion-element" itemprop="description">我如果爱你/绝不像攀援的凌霄花/借你的高枝炫耀自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/44938b95459e" title="简书" target="_blank">简书</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常规操作"><span class="nav-number">1.</span> <span class="nav-text">常规操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-最基本的操作"><span class="nav-number">1.1.</span> <span class="nav-text">1.最基本的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-查看自己总共co了多少文件"><span class="nav-number">1.2.</span> <span class="nav-text">2.查看自己总共co了多少文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-最有用的命令"><span class="nav-number">1.3.</span> <span class="nav-text">3.最有用的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-新增目录和文件"><span class="nav-number">1.4.</span> <span class="nav-text">4.新增目录和文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-放弃co某个文件"><span class="nav-number">1.5.</span> <span class="nav-text">5.放弃co某个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-主线、分支文件合并"><span class="nav-number">1.6.</span> <span class="nav-text">6.主线、分支文件合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-标签相关"><span class="nav-number">1.7.</span> <span class="nav-text">7.标签相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-将整个目录导入clearcase"><span class="nav-number">1.8.</span> <span class="nav-text">8.将整个目录导入clearcase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#clearcase常用命令集锦"><span class="nav-number">2.</span> <span class="nav-text">clearcase常用命令集锦</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-将整个目录导入clearcase"><span class="nav-number">2.1.</span> <span class="nav-text">1.将整个目录导入clearcase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-加锁"><span class="nav-number">2.2.</span> <span class="nav-text">2.加锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3．解锁"><span class="nav-number">2.3.</span> <span class="nav-text">3．解锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-转换格式"><span class="nav-number">2.4.</span> <span class="nav-text">4.转换格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-查看VOB的基本信息和UUID"><span class="nav-number">2.5.</span> <span class="nav-text">5.查看VOB的基本信息和UUID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-删除视图"><span class="nav-number">2.6.</span> <span class="nav-text">6.删除视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-删除lost-found"><span class="nav-number">2.7.</span> <span class="nav-text">7.删除lost+found</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-查询某一天的修改记录"><span class="nav-number">2.8.</span> <span class="nav-text">8.查询某一天的修改记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-最基本的操作"><span class="nav-number">2.9.</span> <span class="nav-text">9.最基本的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-查看自己总共co了多少文件"><span class="nav-number">2.10.</span> <span class="nav-text">10.查看自己总共co了多少文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-make目录和文件"><span class="nav-number">2.11.</span> <span class="nav-text">11.make目录和文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-主线、分支文件合并"><span class="nav-number">2.12.</span> <span class="nav-text">12.主线、分支文件合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-标签相关"><span class="nav-number">2.13.</span> <span class="nav-text">13.标签相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-察看某目录下的文件"><span class="nav-number">2.14.</span> <span class="nav-text">14.察看某目录下的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-man-help命令"><span class="nav-number">2.15.</span> <span class="nav-text">15.man/help命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-放弃co某个文件"><span class="nav-number">2.16.</span> <span class="nav-text">16.放弃co某个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-更改VOB的Owner"><span class="nav-number">2.17.</span> <span class="nav-text">17.更改VOB的Owner:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-更改VOB的Group"><span class="nav-number">2.18.</span> <span class="nav-text">18. 更改VOB的Group:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-增加Additional-Group"><span class="nav-number">2.19.</span> <span class="nav-text">19.增加Additional Group:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-删除Additional-Group"><span class="nav-number">2.20.</span> <span class="nav-text">20.删除Additional Group:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-更改group、owner、mod"><span class="nav-number">2.21.</span> <span class="nav-text">21. 更改group、owner、mod</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-创建VOB"><span class="nav-number">2.22.</span> <span class="nav-text">22.创建VOB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-Mount-vob"><span class="nav-number">2.23.</span> <span class="nav-text">23. Mount vob</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-创建视图"><span class="nav-number">2.24.</span> <span class="nav-text">24. 创建视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-设置当前视图"><span class="nav-number">2.25.</span> <span class="nav-text">25. 设置当前视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26．设置当前的activity"><span class="nav-number">2.26.</span> <span class="nav-text">26．设置当前的activity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-Check-out"><span class="nav-number">2.27.</span> <span class="nav-text">27. Check out</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-Check-in"><span class="nav-number">2.28.</span> <span class="nav-text">28. Check in</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#clearcase实用命令"><span class="nav-number">4.</span> <span class="nav-text">clearcase实用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发人员常用命令"><span class="nav-number">5.</span> <span class="nav-text">开发人员常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-建立vob"><span class="nav-number">5.1.</span> <span class="nav-text">1. 建立vob</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Mount-vob"><span class="nav-number">5.2.</span> <span class="nav-text">2. Mount vob</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-创建视图"><span class="nav-number">5.3.</span> <span class="nav-text">3. 创建视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-设置当前视图"><span class="nav-number">5.4.</span> <span class="nav-text">4. 设置当前视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-在VOB的根目录下到入数据："><span class="nav-number">5.5.</span> <span class="nav-text">5. 在VOB的根目录下到入数据：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-改变VOB的Owner"><span class="nav-number">5.6.</span> <span class="nav-text">6. 改变VOB的Owner:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-改变VOB的Group"><span class="nav-number">5.7.</span> <span class="nav-text">7. 改变VOB的Group:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-增加Additional-Group"><span class="nav-number">5.8.</span> <span class="nav-text">8. 增加Additional Group:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-删除Additional-Group"><span class="nav-number">5.9.</span> <span class="nav-text">9. 删除Additional Group:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-将jmccboss-VOB-中所有元素Owner-改成ccadmin，Group改成jmccboss"><span class="nav-number">5.10.</span> <span class="nav-text">10. 将jmccboss VOB 中所有元素Owner 改成ccadmin，Group改成jmccboss:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-将jmccboss-VOB-中所有元素权限"><span class="nav-number">5.11.</span> <span class="nav-text">11. 将jmccboss VOB 中所有元素权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Mount-vob"><span class="nav-number">5.12.</span> <span class="nav-text">12. Mount vob</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-创建视图"><span class="nav-number">5.13.</span> <span class="nav-text">13. 创建视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-设置当前视图"><span class="nav-number">5.14.</span> <span class="nav-text">14. 设置当前视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-在VOB的根目录下到入数据："><span class="nav-number">5.15.</span> <span class="nav-text">15. 在VOB的根目录下到入数据：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-Check-out"><span class="nav-number">5.16.</span> <span class="nav-text">16. Check out</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-Check-in"><span class="nav-number">5.17.</span> <span class="nav-text">17. Check in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-建立一个snapshot-view"><span class="nav-number">5.18.</span> <span class="nav-text">18. 建立一个snapshot view</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-编辑config-spe"><span class="nav-number">5.19.</span> <span class="nav-text">19. 编辑config spe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-更新snapshot-view"><span class="nav-number">5.20.</span> <span class="nav-text">20. 更新snapshot view</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21．设置当前的activity"><span class="nav-number">5.21.</span> <span class="nav-text">21．设置当前的activity</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不出名的刀客</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">2.0k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
