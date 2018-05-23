@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiejing2014.github.io/"/>
-  <updated>2018-05-21T17:11:16.183Z</updated>
+  <updated>2018-05-23T01:40:16.757Z</updated>
   <id>http://xiejing2014.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分享1文,30分钟速览Regex正则表达式</title>
+    <link href="http://xiejing2014.github.io/2018/05/23/%E5%88%86%E4%BA%AB1%E6%96%87-30%E5%88%86%E9%92%9F%E9%80%9F%E8%A7%88Regex%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://xiejing2014.github.io/2018/05/23/分享1文-30分钟速览Regex正则表达式/</id>
+    <published>2018-05-23T01:31:48.000Z</published>
+    <updated>2018-05-23T01:40:16.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>最初接触正则表达式是在学习shell的时候，涉及到正则表达式的匹配。<br>后来，正则表达式在各处用得也逐渐开始多了起来。。<br>分享此文，记录一下。</p><p><img src="/images/Regex.jpg" alt=""></p><a id="more"></a><p>资料参考：<a href="http://www.jb51.net/tools/zhengze.html。" target="_blank" rel="noopener">http://www.jb51.net/tools/zhengze.html。</a></p><ul><li><ul><li><ul><li>以后遇到正则的内容，可以往本文添加 - - -</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最初接触正则表达式是在学习shell的时候，涉及到正则表达式的匹配。&lt;br&gt;后来，正则表达式在各处用得也逐渐开始多了起来。。&lt;br&gt;分享此文，记录一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Regex.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="关联知识点" scheme="http://xiejing2014.github.io/categories/%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+    
+      <category term="正则表达式" scheme="http://xiejing2014.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Oracle某些函数学习记录（2018-05-21备忘）</title>
