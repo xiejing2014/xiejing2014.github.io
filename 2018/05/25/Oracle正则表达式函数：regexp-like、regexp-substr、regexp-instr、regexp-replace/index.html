@@ -43,8 +43,8 @@
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
   <script>
     (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('daoke'){
+            if (prompt('请输入文章密码') !== 'daoke'){
                 alert('密码错误！');
                 history.back();
             }
@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="oracle,regex," />
 
 
 
@@ -91,16 +91,25 @@
 
 
 
-<meta name="description" content="我如果爱你/绝不像攀援的凌霄花/借你的高枝炫耀自己">
-<meta property="og:type" content="website">
-<meta property="og:title" content="莫失莫忘">
-<meta property="og:url" content="http://xiejing2014.github.io/tags/shell/index.html">
+<meta name="keywords" content="oracle,regex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle正则表达式函数：regexp_like、regexp_substr、regexp_instr、regexp_replace">
+<meta property="og:url" content="http://xiejing2014.github.io/2018/05/25/Oracle正则表达式函数：regexp-like、regexp-substr、regexp-instr、regexp-replace/index.html">
 <meta property="og:site_name" content="莫失莫忘">
-<meta property="og:description" content="我如果爱你/绝不像攀援的凌霄花/借你的高枝炫耀自己">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_12c.jpg">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/20100918104143377.gif">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/20100918104143840.gif">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/20100918104143534.gif">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/20100918104144147.gif">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/11.png">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/22.png">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/33.png">
+<meta property="og:image" content="http://xiejing2014.github.io/images/oracle_regex/44.png">
+<meta property="og:updated_time" content="2018-05-25T03:32:41.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="莫失莫忘">
-<meta name="twitter:description" content="我如果爱你/绝不像攀援的凌霄花/借你的高枝炫耀自己">
+<meta name="twitter:title" content="Oracle正则表达式函数：regexp_like、regexp_substr、regexp_instr、regexp_replace">
+<meta name="twitter:image" content="http://xiejing2014.github.io/images/oracle_12c.jpg">
 
 
 
@@ -130,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://xiejing2014.github.io/tags/shell/"/>
+  <link rel="canonical" href="http://xiejing2014.github.io/2018/05/25/Oracle正则表达式函数：regexp-like、regexp-substr、regexp-instr、regexp-replace/"/>
 
 
 
 
 
-  <title>标签: shell | 莫失莫忘</title>
+  <title>Oracle正则表达式函数：regexp_like、regexp_substr、regexp_instr、regexp_replace | 莫失莫忘</title>
   
 
 
@@ -165,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -333,54 +342,308 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>shell<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiejing2014.github.io/2018/05/25/Oracle正则表达式函数：regexp-like、regexp-substr、regexp-instr、regexp-replace/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不出名的刀客">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1105790270.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莫失莫忘">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/18/用不同语言来遍历目录和文件/" itemprop="url">
-              
-                <span itemprop="name">用不同语言来遍历目录和文件</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Oracle正则表达式函数：regexp_like、regexp_substr、regexp_instr、regexp_replace</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-18T10:28:15+08:00"
-              content="2018-05-18" >
-          05-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T11:25:46+08:00">
+                2018-05-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/25/Oracle正则表达式函数：regexp-like、regexp-substr、regexp-instr、regexp-replace/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/25/Oracle正则表达式函数：regexp-like、regexp-substr、regexp-instr、regexp-replace/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  820 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/images/oracle_12c.jpg" alt="oracle12c"></p>
+<a id="more"></a>
+<p>Oracle使用正则表达式4个主要函数：</p>
+<p>1、regexp_like 只能用于条件表达式，和 like 类似，但是使用的正则表达式进行匹配，语法很简单：<br><img src="/images/oracle_regex/20100918104143377.gif" alt=""><br>2、regexp_substr 函数，和 substr 类似，用于拾取合符正则表达式描述的字符子串，语法如下：<br><img src="/images/oracle_regex/20100918104143840.gif" alt=""><br>3、regexp_instr 函数，和 instr 类似，用于标定符合正则表达式的字符子串的开始位置，语法如下：<br><img src="/images/oracle_regex/20100918104143534.gif" alt=""><br>4、regexp_replace 函数，和 replace 类似，用于替换符合正则表达式的字符串，语法如下：<br><img src="/images/oracle_regex/20100918104144147.gif" alt=""></p>
+<p>这里解析一下几个参数的含义：</p>
+<p>1、source_char，输入的字符串，可以是列名或者字符串常量、变量。</p>
+<p>2、pattern，正则表达式。</p>
+<p>3、match_parameter，匹配选项。</p>
+<p>取值范围： i：大小写不敏感； c：大小写敏感；n：点号 . 不匹配换行符号；m：多行模式；x：扩展模式，忽略正则表达式中的空白字符。</p>
+<p>4、position，标识从第几个字符开始正则表达式匹配。</p>
+<p>5、occurrence，标识第几个匹配组。</p>
+<p>6、replace_string，替换的字符串。</p>
+<p><strong>示例：</strong></p>
+<p><strong>基础数据准备</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-- 创建表及测试数据</span><br><span class="line">create table tmp (</span><br><span class="line">  ID varchar2(60),</span><br><span class="line">  STR varchar2(60)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">insert into tmp values (&apos;like&apos;,&apos;a9999&apos;);</span><br><span class="line">insert into tmp values (&apos;like&apos;,&apos;a9c&apos;);</span><br><span class="line">insert into tmp values (&apos;like&apos;,&apos;A7007&apos;);</span><br><span class="line">insert into tmp values (&apos;like&apos;,&apos;123a34cc&apos;);</span><br><span class="line">insert into tmp values (&apos;substr&apos;,&apos;123,234,345&apos;);</span><br><span class="line">insert into tmp values (&apos;substr&apos;,&apos;12,34.56:78&apos;);</span><br><span class="line">insert into tmp values (&apos;substr&apos;,&apos;123456789&apos;);</span><br><span class="line">insert into tmp values (&apos;instr&apos;,&apos;192.168.0.1&apos;);</span><br><span class="line">insert into tmp values (&apos;replace&apos;,&apos;(020)12345678&apos;);</span><br><span class="line">insert into tmp values (&apos;replace&apos;,&apos;001517729C28&apos;);</span><br><span class="line"></span><br><span class="line">-- 查询插入结果</span><br><span class="line">SQL&gt; select count(*) from tmp;</span><br><span class="line"></span><br><span class="line">  COUNT(*)</span><br><span class="line">----------</span><br><span class="line">        10</span><br></pre></td></tr></table></figure></p>
+<p><strong>regexp_like</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">-- regexp_like示例</span><br><span class="line">-- &apos;i&apos;忽略大小写</span><br><span class="line">SQL&gt; SELECT str from tmp where id=&apos;like&apos; and regexp_like(str,&apos;A\d+&apos;,&apos;i&apos;);</span><br><span class="line"></span><br><span class="line">STR</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">a9999</span><br><span class="line">a9c</span><br><span class="line">A7007</span><br><span class="line">123a34cc</span><br><span class="line"></span><br><span class="line">-- 不带&apos;i&apos;</span><br><span class="line">SQL&gt; select str from tmp where id=&apos;like&apos; and regexp_like(str, &apos;a\d+&apos;);</span><br><span class="line"></span><br><span class="line">STR</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">a9999</span><br><span class="line">a9c</span><br><span class="line">123a34cc</span><br><span class="line"></span><br><span class="line">-- 匹配以a开头的</span><br><span class="line">SQL&gt; select str from tmp where id=&apos;like&apos; and regexp_like(str,&apos;^a\d+&apos;);</span><br><span class="line"></span><br><span class="line">STR</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">a9999</span><br><span class="line">a9c</span><br><span class="line"></span><br><span class="line">-- 匹配以a开头，以数字结尾的</span><br><span class="line">SQL&gt; SELECT str from tmp where id=&apos;like&apos; and regexp_like(str,&apos;^a\d+$&apos;);</span><br><span class="line"></span><br><span class="line">STR</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">a9999</span><br></pre></td></tr></table></figure></p>
+<p><strong>regexp_substr</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- regexp_substr示例1</span><br><span class="line">SELECT</span><br><span class="line">str,</span><br><span class="line">regexp_substr(str,&apos;[^,]+&apos;)     str_1_1,</span><br><span class="line">regexp_substr(str,&apos;[^,]+&apos;,1,1) str_1_1,</span><br><span class="line">regexp_substr(str,&apos;[^,]+&apos;,1,2) str_1_2,  -- occurrence 第几个匹配组</span><br><span class="line">regexp_substr(str,&apos;[^,]+&apos;,2,1) str_2_1   -- position 从第几个字符开始匹配</span><br><span class="line">from tmp</span><br><span class="line">where id=&apos;substr&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>查询结果：<br><img src="/images/oracle_regex/11.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- regexp_substr示例2</span><br><span class="line">SQL&gt; col str format a20</span><br><span class="line">SQL&gt; SELECT</span><br><span class="line">  2  STR,</span><br><span class="line">  3  REGEXP_SUBSTR(STR, &apos;\d&apos;) STR,</span><br><span class="line">  4  REGEXP_SUBSTR(STR, &apos;\d+&apos;, 1, 1) STR,</span><br><span class="line">  5  REGEXP_SUBSTR(STR, &apos;\d&#123;2&#125;&apos;, 1, 2) STR,</span><br><span class="line">  6  REGEXP_SUBSTR(STR, &apos;\d&#123;3&#125;&apos;, 2, 1) STR</span><br><span class="line">  7  FROM TMP</span><br><span class="line">  8  WHERE ID = &apos;substr&apos;;</span><br></pre></td></tr></table></figure>
+<p>查询结果：<br><img src="/images/oracle_regex/22.png" alt=""></p>
+<p><strong>regexp_instr</strong></p>
+<p>略，以后补充。</p>
+<p><strong>regexp_replace</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- regexp_replace示例</span><br><span class="line">SELECT STR,</span><br><span class="line">REGEXP_REPLACE(STR, &apos;020&apos;, &apos;GZ&apos;) STR,</span><br><span class="line">REGEXP_REPLACE(STR, &apos;(\d&#123;3&#125;)(\d&#123;3&#125;)&apos;, &apos;&lt;\2\1&gt;&apos;) STR -- 将第一、第二捕获组交换位置，用尖括号标识出来</span><br><span class="line">FROM TMP</span><br><span class="line">WHERE ID = &apos;replace&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>查询结果：<br><img src="/images/oracle_regex/33.png" alt=""></p>
+<p><strong>综合示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">-- 建表</span><br><span class="line">create table tmp1(</span><br><span class="line">id varchar2(60),</span><br><span class="line">str varchar2(512)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- 插入测试数据</span><br><span class="line">insert into tmp1 values(&apos;test&apos;,&apos;020000080568179234090000010030040050040205090070080040050000060289634175010000020&apos;);</span><br><span class="line"></span><br><span class="line">-- 使用regex函数处理数据</span><br><span class="line">SQL&gt; select str,REGEXP_SUBSTR(str,&apos;\d&#123;9&#125;&apos;) as row_line from tmp1; </span><br><span class="line"></span><br><span class="line">STR                  ROW_LINE</span><br><span class="line">02000008056817923409 020000080</span><br><span class="line">00000100300400500402</span><br><span class="line">05090070080040050000</span><br><span class="line">060289634</span><br><span class="line"></span><br><span class="line">-- 未完待续</span><br></pre></td></tr></table></figure></p>
+<p>查询结果：<br><img src="/images/oracle_regex/44.png" alt=""></p>
+<p><strong>参考资源：</strong><br><a href="https://www.cnblogs.com/suinlove/p/3981454.html" target="_blank" rel="noopener">https://www.cnblogs.com/suinlove/p/3981454.html</a></p>
+<p><a href="https://docs.oracle.com/database/121/SQLRF/conditions007.htm#SQLRF00501" target="_blank" rel="noopener">https://docs.oracle.com/database/121/SQLRF/conditions007.htm#SQLRF00501</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>觉得文章不错的话，也可以支持一下哦~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/1105792176.jpg" alt="不出名的刀客 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/1105794423.jpg" alt="不出名的刀客 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+    
+    <div>
+	
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oracle/" rel="tag"><i class="fa fa-tag"></i> oracle</a>
+          
+            <a href="/tags/regex/" rel="tag"><i class="fa fa-tag"></i> regex</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/23/分享1文-30分钟速览Regex正则表达式/" rel="next" title="分享1文,30分钟速览Regex正则表达式">
+                <i class="fa fa-chevron-left"></i> 分享1文,30分钟速览Regex正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -388,6 +651,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjQ0Mi8xMjk3Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -663,6 +935,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -692,6 +968,17 @@
 
 
   
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
 
 
 
@@ -709,6 +996,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'xiejing2014',
+            repo: 'xiejing2014.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'e80f86b62fe5efcfce612b2d3c5d2387e07d4bb1',
+            
+                client_id: 'e9f17290602e60bbda2c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
