@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiejing2014.github.io/"/>
-  <updated>2018-06-01T05:43:16.005Z</updated>
+  <updated>2018-06-01T06:02:44.956Z</updated>
   <id>http://xiejing2014.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>informix历史（转帖-2）</title>
+    <link href="http://xiejing2014.github.io/2018/06/01/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-2%EF%BC%89/"/>
+    <id>http://xiejing2014.github.io/2018/06/01/informix历史（转帖-2）/</id>
+    <published>2018-06-01T05:48:10.000Z</published>
+    <updated>2018-06-01T06:02:44.956Z</updated>
+    
+    <content type="html"><![CDATA[<p>Informix在1980年成立，目的是为Unix等开放操作系统提供专业的关系型数据库产品。公司的名称Informix便是取自Information和Unix的结合。</p><p>Informix第一个真正支持SQL语言的关系数据库产品是InformixSE（StandardEngine）。InformixSE的特点是简单、轻便、适应性强。它的装机量非常之大，尤其是在当时的微机Unix环境下，成为主要的数据库产品。它也是第一个被移植到Linux上的商业数据库产品。</p><p>在90年代初，联机事务处理成为关系数据库越来越主要的应用，同时，Client/Server结构日渐兴起。为了满足基于Client/Server环境下联机事务处理的需要，Informix在其数据库产品中引入了Client/Server的概念，将应用对数据库的请求与数据库对请求的处理分割开来，推出了Informix-OnLine，OnLine的一个特点是数据的管理的重大改变，即数据表不再是单个的文件，而是数据库空间和逻辑设备。逻辑设备不仅可以建立在文件系统之上，还可以是硬盘的分区和裸设备。由此提高了数据的安全性。</p><p>1993年，为了克服多进程系统性能的局限性，Informix使用多线程机制重新改写数据库核心，次年初，Informix推出了采用被称为”动态可伸缩结构”（DSA）的InformixDynamicServer。除了应用线程机制以外，Informix在数据库核心中引入了虚处理器的概念，每个虚处理器就是一个Informix数据库服务器进程。在DynamicServer中，多条线程可以在虚处理器缓冲池中并行执行，而每个虚处理机又被实际的多处理机调度执行。更重要的是：为了执行高效性和多功能的调谐，Informix将虚处理器根据不同的处理任务进行了分类。每一类被优化以完成一种特定的功能。</p><p>到90年代后期，随着Internet的兴起，电子文档、图片、视频、空间信息、Internet/Web等应用潮水般涌入IT行业，而关系数据库所管理的数据类型仍停留在数字、字符串、日期等六七十年代的水平上，其处理能力便显得力不从心了。1992年，著名的数据库学者、Ingres的创始人加州大学伯克利分校的MichaelStonebraker教授提出对象关系数据库模型，从而找到了一条解决问题的有效途径。</p><p>1995年，Stonebraker及其研发组织的加入了Informix，使之在数据库发展方向上有了一个新的突破：1996年Informix推出了通用数据选件（Universal Data Option）。这是一个对象关系模型的数据库服务器；它与其他厂商中间件的解决方案不同，从关系数据库服务器内部的各个环节对数据库进行面向对象的扩充；将关系数据库的各种机制抽象化、通用化。UniversalDataOption采用了DynamicServer的所有底层技术，如DSA结构和并行处理，同时允许用户在数据库中建立复杂的数据类型及用户自定义的数据类型，同时可对这些数据类型定义各种操作和运算以实现对象的封装。在定义操作和运算时可以采用数据库过程语言、C语言，它们经注册后成为服务器的一部分。</p><p>1999年，Informix进一步将Universal Data Option进行了优化，为用户自定义数据类型和操作过程提供了完整的工具环境。同时在传统事务处理的性能超过了以往的Dynamic Server。新的数据库核心便被命名为IDS.2000。它的目标定位于下世纪基于Internet的复杂数据库应用。</p><p>事实上，Internet的普及从Web开始。Web应用以简便和图文并茂见长。但充斥整个系统的HTML文件又将我们不知不觉地带回了文件系统的时代。采用数据库管理Internet信息遇到的第一个挑战就是复杂信息的管理问题，Internet的出现将”数据”的概念在实际应用中扩大了。为此，自 1995年起，Informix便着手进行新一代数据库系统的设计。作为专业的数据库厂商，Informix首先针对Internet应用中数据类型的多样化，采用对象技术对关系数据库体系进行了扩展。与众不同之处在于，Informix并非将新的数据类型写死在数据库核心中，而是将数据库系统中各个环节充分地抽象化，使用户有能力定义和描述自己需要管理的数据类型，将可管理的数据类型扩展到无限，同时适应了未来应用发展的需要。这就是Informix今年新推出的数据库服务器–InformixDynamicServer.2000（简称IDS.2000）。</p><p>在IDS.2000中，Informix的另一重大贡献在于抽象化数据库的访问方法（索引机制和查询优化）并将其中接口开放。这样，用户便可以自己定义对复杂对象的全新的索引机制，并融入整个数据库服务器。在IDS.2000中，所有用户自定义的数据类型、操作、索引机制都将被系统与其内置的类型、操作和索引机制同等对待。IDS.2000将所有数据库操作纳入标准数据库SQL的范畴，在形式上与传统关系数据库完全兼容，但适应了”数据”概念拓展的需求，成为真正的通用数据库。Informix在IDS.2000之上增加了一系列核心扩展模块，构成了面向Internet的多功能数据库服务器 Informix Internet Foundation.2000。</p><p>INFORMIX主要产品分为三大部分：<br>　　 数据库服务器(数据库核心)<br>　　 应用开发工具<br>　　 网络数据库互联产品</p><p>数据库服务器有两种，作用都是提供数据操作和管理：<br>　　 SE：完全基于UNIX操作系统，主要针对非多媒体的较少用户数的应用<br>　　 ONLINE：针对大量用户的联机事务处理和多媒体应用环境</p><p>应用开发工具是用以开发应用程序必要的环境和工具，主要也有两个系列：<br>4GL：INFORMIX传统的基于字符界面的开发工具，该系列的主要产品有五个，他们是I-SQL、4GL RDS、4GL C COMPILER、4GL ID和ESQL/C；<br>NewEra：INFORMIX最新提供的具有事件驱动能力、面向对象的基于各种图形界面的开发工具。<br>INFORMIX的网络数据库互联产品：提供给用户基于多种工业标准的应用程序接口，通过它可以和其它遵守这些工业标准的数据库联接。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Informix在1980年成立，目的是为Unix等开放操作系统提供专业的关系型数据库产品。公司的名称Informix便是取自Information和Unix的结合。&lt;/p&gt;
+&lt;p&gt;Informix第一个真正支持SQL语言的关系数据库产品是InformixSE（Standa
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://xiejing2014.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="informix" scheme="http://xiejing2014.github.io/tags/informix/"/>
+    
+  </entry>
   
   <entry>
     <title>Informix历史（转帖-1）</title>
