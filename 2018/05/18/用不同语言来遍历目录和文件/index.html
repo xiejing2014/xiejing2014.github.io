@@ -1,173 +1,37 @@
-<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>用不同语言来遍历目录和文件 | 莫失莫忘</title><meta name="keywords" content="perl,python,shell,C/C++"><meta name="author" content="君子当盘"><meta name="copyright" content="君子当盘"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
-<meta property="og:title" content="用不同语言来遍历目录和文件">
-<meta property="og:url" content="http://xiejing2014.github.io/2018/05/18/%E7%94%A8%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%9D%A5%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6/index.html">
-<meta property="og:site_name" content="莫失莫忘">
-<meta property="og:locale">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-<meta property="article:published_time" content="2018-05-18T02:28:15.000Z">
-<meta property="article:modified_time" content="2018-05-21T17:22:58.000Z">
-<meta property="article:author" content="君子当盘">
-<meta property="article:tag" content="perl">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="shell">
-<meta property="article:tag" content="C&#x2F;C++">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://xiejing2014.github.io/2018/05/18/%E7%94%A8%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%9D%A5%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '用不同语言来遍历目录和文件',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2018-05-22 01:22:58'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
+{% block page_class %}page-post-detail{% endblock %}
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="莫失莫忘" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">莫失莫忘</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">用不同语言来遍历目录和文件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-05-18T02:28:15.000Z" title="Created 2018-05-18 10:28:15">2018-05-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2018-05-21T17:22:58.000Z" title="Updated 2018-05-22 01:22:58">2018-05-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">开发经验</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="用不同语言来遍历目录和文件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="/images/thanks_for_watching.jpg"></p>
-<p><escape><span id="more"></span></escape></p>
-<p>最近翻移动硬盘，发现自己还短暂的写过两个月的perl语言，盘中赫然躺着一些perl脚本，其中一个便是实现的遍历目录及其包含的文件的脚本。<br>该功能无非就是利用递归来写代码，这里想用perl、python、shell和C语言分别对其进行编写，聊发少年狂而已。</p>
-<h1 id="1、程序列表"><a href="#1、程序列表" class="headerlink" title="1、程序列表"></a>1、程序列表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost script]# ls -tlr</span><br><span class="line">total 28</span><br><span class="line">-rwxr--r--. 1 root root  276 May 17 19:16 shell_find.sh</span><br><span class="line">-rwxr--r--. 1 root root  444 May 17 19:17 python_find.py</span><br><span class="line">-rwxr--r--. 1 root root  782 May 17 19:18 perl_find.sh</span><br><span class="line">-rw-r--r--. 1 root root 1184 May 17 19:36 C_Find.c</span><br><span class="line">-rwxr-xr-x. 1 root root 9048 May 17 19:37 C_Find</span><br><span class="line">[root@localhost script]# </span><br></pre></td></tr></table></figure>
-<h2 id="1-1-perl"><a href="#1-1-perl" class="headerlink" title="1.1 perl"></a>1.1 perl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/perl</span><br><span class="line"></span><br><span class="line">use strict;</span><br><span class="line"></span><br><span class="line">my @filelist;</span><br><span class="line">my $dir = &quot;../python&quot;;</span><br><span class="line"></span><br><span class="line">push(@filelist,&amp;findfile($dir));</span><br><span class="line">print join(&quot;\n&quot;,@filelist);</span><br><span class="line">print &quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">sub findfile&#123;</span><br><span class="line">        my @filelist;</span><br><span class="line">        my $dir = $_[0];</span><br><span class="line">        opendir(DIR,$dir);</span><br><span class="line">        my @temp = grep(!/^\.\.?$/,readdir(DIR));</span><br><span class="line">        close(DIR);</span><br><span class="line">        my $count = @temp;</span><br><span class="line">        my $i; </span><br><span class="line">        my $tmpdir;</span><br><span class="line">        for($i = 0; $i &lt; $count; $i++)&#123;</span><br><span class="line">                $tmpdir = (); </span><br><span class="line">                $tmpdir = &quot;$dir/$temp[$i]&quot;;</span><br><span class="line">                if(-d &quot;$tmpdir&quot;)&#123;</span><br><span class="line">                        push(@filelist,$tmpdir);                                                                                                                                             </span><br><span class="line">                        push(@filelist,&amp;findfile(&quot;$tmpdir&quot;));</span><br><span class="line">                &#125;   </span><br><span class="line">                else &#123;</span><br><span class="line">                        push(@filelist,$tmpdir);</span><br><span class="line">                &#125;   </span><br><span class="line">        &#125;   </span><br><span class="line">        return @filelist;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-2-python"><a href="#1-2-python" class="headerlink" title="1.2 python"></a>1.2 python</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/python3</span><br><span class="line"># coding=utf-8</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">basedir = &#x27;../python&#x27;</span><br><span class="line">filelists = []</span><br><span class="line"></span><br><span class="line">def find(basedir):</span><br><span class="line">    global filelists</span><br><span class="line">    for parent,dirnames,filenames in os.walk(basedir):</span><br><span class="line">        for dirname in dirnames:</span><br><span class="line">            filelists.append(os.path.join(parent,dirname))                                                                                                                                   </span><br><span class="line">        for filename in filenames:</span><br><span class="line">            filelists.append(os.path.join(parent,filename))</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    find(basedir)</span><br><span class="line">    print(&#x27;\n&#x27;.join(filelists))</span><br></pre></td></tr></table></figure>
+{% block content %}
 
-<h2 id="1-3-shell"><a href="#1-3-shell" class="headerlink" title="1.3 shell"></a>1.3 shell</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/bash</span><br><span class="line"></span><br><span class="line">set -o nounset</span><br><span class="line">set -o errexit</span><br><span class="line"></span><br><span class="line">function find()&#123;</span><br><span class="line">    for file in `ls $1`</span><br><span class="line">    do  </span><br><span class="line">        if [ -d $1&quot;/&quot;$file ]</span><br><span class="line">        then</span><br><span class="line">            echo $1&quot;/&quot;$file                                                                                                                                                                  </span><br><span class="line">            find $1&quot;/&quot;$file</span><br><span class="line">        else</span><br><span class="line">            echo $1&quot;/&quot;$file</span><br><span class="line">        fi  </span><br><span class="line">    done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">find &quot;../python&quot;</span><br></pre></td></tr></table></figure>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-<h2 id="1-4-C"><a href="#1-4-C" class="headerlink" title="1.4 C"></a>1.4 C</h2><p>源代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">/* list dir and files through C */                                                                                                                                                           </span><br><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;dirent.h&gt;</span><br><span class="line">#include &lt;sys/stat.h&gt;</span><br><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line"></span><br><span class="line">#define MAX_PATH_LENGTH 512 </span><br><span class="line"></span><br><span class="line">int find(char *path)</span><br><span class="line">&#123;</span><br><span class="line">    DIR *ptr_dir;</span><br><span class="line">    struct dirent *dir_entry;</span><br><span class="line">    </span><br><span class="line">    int i = 0;</span><br><span class="line">    char *child_path;</span><br><span class="line"></span><br><span class="line">    child_path = (char*)malloc(sizeof(char)*MAX_PATH_LENGTH);</span><br><span class="line">    if(child_path == NULL)&#123;</span><br><span class="line">        printf(&quot;malloc child_path occurs errors.\n&quot;);</span><br><span class="line">        exit(1);</span><br><span class="line">    &#125;   </span><br><span class="line">    </span><br><span class="line">    memset(child_path,0x0,sizeof(char)*MAX_PATH_LENGTH);</span><br><span class="line"></span><br><span class="line">    ptr_dir = opendir(path);</span><br><span class="line">    while(( dir_entry = readdir(ptr_dir) ) != NULL)&#123;</span><br><span class="line">        if(dir_entry-&gt;d_type &amp; DT_DIR)&#123;</span><br><span class="line">            if(strcmp(dir_entry-&gt;d_name,&quot;.&quot;) == 0 ||  </span><br><span class="line">                    strcmp(dir_entry-&gt;d_name,&quot;..&quot;) == 0)&#123; </span><br><span class="line">                continue;</span><br><span class="line">            &#125;   </span><br><span class="line">            sprintf(child_path,&quot;%s/%s&quot;,path,dir_entry-&gt;d_name);</span><br><span class="line">            printf(&quot;%s\n&quot;,child_path);</span><br><span class="line">    </span><br><span class="line">            find(child_path);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            printf(&quot;%s/%s\n&quot;,path,dir_entry-&gt;d_name);</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;   </span><br><span class="line">    </span><br><span class="line">    free(child_path);</span><br><span class="line">    child_path = NULL;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    find(&quot;../python&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<p>编译：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o C_Find C_Find.c</span><br></pre></td></tr></table></figure>
-<h1 id="2、执行结果"><a href="#2、执行结果" class="headerlink" title="2、执行结果"></a>2、执行结果</h1><p>上述代码执行结果一致，输出文件列表的默认排序或有差别。<br>以shell脚本的执行结果为例，输出如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost script]# ./shell_find.sh </span><br><span class="line">../python/countCodeLine2.py</span><br><span class="line">../python/countCodeLine.py</span><br><span class="line">../python/countCodeLine.py_ori</span><br><span class="line">../python/Django</span><br><span class="line">../python/How_to_be_pythonic</span><br><span class="line">../python/How_to_be_pythonic/add.c</span><br><span class="line">../python/How_to_be_pythonic/adder.so</span><br><span class="line">../python/How_to_be_pythonic/app_decrator.py</span><br><span class="line">../python/How_to_be_pythonic/cpython_api.py</span><br><span class="line">../python/How_to_be_pythonic/cpython_ctype.py</span><br><span class="line">../python/How_to_be_pythonic/cpython_SWIG.py</span><br><span class="line">../python/How_to_be_pythonic/debug.txt</span><br><span class="line">../python/How_to_be_pythonic/decrator.py</span><br><span class="line">../python/How_to_be_pythonic/def__.py</span><br><span class="line">../python/How_to_be_pythonic/enumerate.py</span><br><span class="line">../python/How_to_be_pythonic/exception.py</span><br><span class="line">../python/How_to_be_pythonic/forelse.py</span><br><span class="line">../python/How_to_be_pythonic/funccode1.py</span><br><span class="line">../python/How_to_be_pythonic/Generators.py</span><br><span class="line">../python/How_to_be_pythonic/kw-args.py</span><br><span class="line">../python/How_to_be_pythonic/out.log</span><br><span class="line">../python/How_to_be_pythonic/pprint.py</span><br><span class="line">../python/How_to_be_pythonic/set.py</span><br><span class="line">../python/How_to_be_pythonic/test3.py</span><br><span class="line">../python/How_to_be_pythonic/test.py</span><br><span class="line">[root@localhost script]# </span><br></pre></td></tr></table></figure>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
+    </div>
+  </div>
 
-<h1 id="3、后记"><a href="#3、后记" class="headerlink" title="3、后记"></a>3、后记</h1><ol>
-<li>C语言的实现方法中，有关dirent、stat等结构体含义的描述，可参见：<br> <a target="_blank" rel="noopener" href="http://www.360doc.com/content/15/0701/10/5470123_481878714.shtml">http://www.360doc.com/content/15/0701/10/5470123_481878714.shtml</a></li>
-<li>代码中输出的是目录及文件，可调整。</li>
-<li>对列出的文件可做进一步的条件筛选，如后缀判断等。</li>
-<li>可比较时间，可优化。</li>
-<li>本文原作者:不出名的刀客，转载请一同转发本文链接。</li>
-<li>第一次网上写技术文，文有不对之处，欢迎指正。</li>
-<li>另，小白正在学习python，欢迎大神留言指教。</li>
-</ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xiejing2014.github.io">君子当盘</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xiejing2014.github.io/2018/05/18/%E7%94%A8%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%9D%A5%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6/">http://xiejing2014.github.io/2018/05/18/%E7%94%A8%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%9D%A5%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/perl/">perl</a><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/shell/">shell</a><a class="post-meta__tags" href="/tags/C-C/">C/C++</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2018/05/21/Oracle%E6%9F%90%E4%BA%9B%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%882018-05-21%E5%A4%87%E5%BF%98%EF%BC%89/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Oracle某些函数学习记录（2018-05-21备忘）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">君子当盘</div><div class="author-info__description">万物皆可盘</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81%E7%A8%8B%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">1、程序列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-perl"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 perl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-python"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-shell"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-C"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E3%80%81%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">2.</span> <span class="toc-text">2、执行结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3%E3%80%81%E5%90%8E%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">3、后记</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2018/06/01/%E9%99%88%E6%B5%A9-GDB%EF%BC%88%E6%91%98%E5%BD%95%EF%BC%89-%E5%A4%87%E5%BF%98/" title="陈浩-GDB（摘录）-备忘"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="陈浩-GDB（摘录）-备忘"/></a><div class="content"><a class="title" href="/2018/06/01/%E9%99%88%E6%B5%A9-GDB%EF%BC%88%E6%91%98%E5%BD%95%EF%BC%89-%E5%A4%87%E5%BF%98/" title="陈浩-GDB（摘录）-备忘">陈浩-GDB（摘录）-备忘</a><time datetime="2018-06-01T10:13:29.000Z" title="Created 2018-06-01 18:13:29">2018-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/06/01/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-2%EF%BC%89/" title="informix历史（转帖-2）"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="informix历史（转帖-2）"/></a><div class="content"><a class="title" href="/2018/06/01/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-2%EF%BC%89/" title="informix历史（转帖-2）">informix历史（转帖-2）</a><time datetime="2018-06-01T05:48:10.000Z" title="Created 2018-06-01 13:48:10">2018-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/05/25/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-1%EF%BC%89/" title="Informix历史（转帖-1）"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Informix历史（转帖-1）"/></a><div class="content"><a class="title" href="/2018/05/25/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-1%EF%BC%89/" title="Informix历史（转帖-1）">Informix历史（转帖-1）</a><time datetime="2018-05-25T09:17:51.000Z" title="Created 2018-05-25 17:17:51">2018-05-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/05/25/Oracle%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%87%BD%E6%95%B0/" title="Oracle正则表达式函数"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Oracle正则表达式函数"/></a><div class="content"><a class="title" href="/2018/05/25/Oracle%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%87%BD%E6%95%B0/" title="Oracle正则表达式函数">Oracle正则表达式函数</a><time datetime="2018-05-25T03:25:46.000Z" title="Created 2018-05-25 11:25:46">2018-05-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/05/23/%E5%88%86%E4%BA%AB1%E6%96%87-30%E5%88%86%E9%92%9F%E9%80%9F%E8%A7%88Regex%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分享1文,30分钟速览Regex正则表达式"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分享1文,30分钟速览Regex正则表达式"/></a><div class="content"><a class="title" href="/2018/05/23/%E5%88%86%E4%BA%AB1%E6%96%87-30%E5%88%86%E9%92%9F%E9%80%9F%E8%A7%88Regex%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="分享1文,30分钟速览Regex正则表达式">分享1文,30分钟速览Regex正则表达式</a><time datetime="2018-05-23T01:31:48.000Z" title="Created 2018-05-23 09:31:48">2018-05-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 君子当盘</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+{% endblock %}
+
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
+
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
