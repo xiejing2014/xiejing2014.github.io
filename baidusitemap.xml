@@ -1,181 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-
-    
   <url>
     <loc>http://xiejing2014.github.io/2018/06/01/%E9%99%88%E6%B5%A9-GDB%EF%BC%88%E6%91%98%E5%BD%95%EF%BC%89-%E5%A4%87%E5%BF%98/</loc>
-    <lastmod>2018-06-01T10:16:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>陈浩-GDB（摘录）-备忘</title>
-        <pubTime>2018-06-01T10:13:29.000Z</pubTime>
-        
-        <tag>gdb</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="http://xiejing2014.github.io/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-06-01</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/06/01/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-2%EF%BC%89/</loc>
-    <lastmod>2018-06-01T06:02:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>informix历史（转帖-2）</title>
-        <pubTime>2018-06-01T05:48:10.000Z</pubTime>
-        
-        <tag>informix</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库" url="http://xiejing2014.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-06-01</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/05/25/informix%E5%8E%86%E5%8F%B2%EF%BC%88%E8%BD%AC%E5%B8%96-1%EF%BC%89/</loc>
-    <lastmod>2018-06-01T05:43:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>Informix历史（转帖-1）</title>
-        <pubTime>2018-05-25T09:17:51.000Z</pubTime>
-        
-        <tag>informix</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库" url="http://xiejing2014.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-06-01</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/05/25/Oracle%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2018-05-25T08:33:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Oracle正则表达式函数</title>
-        <pubTime>2018-05-25T03:25:46.000Z</pubTime>
-        
-        <tag>regex</tag>
-         
-        <tag>oracle</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库" url="http://xiejing2014.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-05-25</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/05/22/clearcase%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2018-05-25T01:43:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>clearcase常用命令</title>
-        <pubTime>2018-05-22T12:37:00.000Z</pubTime>
-        
-        <tag>clearcase</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件版本管理" url="http://xiejing2014.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-05-25</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/05/23/%E5%88%86%E4%BA%AB1%E6%96%87-30%E5%88%86%E9%92%9F%E9%80%9F%E8%A7%88Regex%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
-    <lastmod>2018-05-23T14:45:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>分享1文,30分钟速览Regex正则表达式</title>
-        <pubTime>2018-05-23T01:31:48.000Z</pubTime>
-        
-        <tag>正则表达式</tag>
-         
-         
-           
-             
-              <breadCrumb title="关联知识点" url="http://xiejing2014.github.io/categories/%E5%85%B3%E8%81%94%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-05-23</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/05/18/%E7%94%A8%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%9D%A5%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2018-05-21T17:22:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>用不同语言来遍历目录和文件</title>
-        <pubTime>2018-05-18T02:28:15.000Z</pubTime>
-        
-        <tag>perl</tag>
-         
-        <tag>python</tag>
-         
-        <tag>shell</tag>
-         
-        <tag>C/C++</tag>
-         
-         
-           
-             
-              <breadCrumb title="开发经验" url="http://xiejing2014.github.io/categories/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+    <lastmod>2018-05-21</lastmod>
+  </url>
   <url>
     <loc>http://xiejing2014.github.io/2018/05/21/Oracle%E6%9F%90%E4%BA%9B%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%882018-05-21%E5%A4%87%E5%BF%98%EF%BC%89/</loc>
-    <lastmod>2018-05-21T17:11:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>Oracle某些函数学习记录（2018-05-21备忘）</title>
-        <pubTime>2018-05-21T10:09:01.000Z</pubTime>
-        
-        <tag>oracle</tag>
-         
-        <tag>oracle function</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库" url="http://xiejing2014.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-    
-    
-    
-</urlset>
+    <lastmod>2018-05-21</lastmod>
+  </url>
+</urlset> 
