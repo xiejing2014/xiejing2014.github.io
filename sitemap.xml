@@ -146,7 +146,7 @@
 
   
   <url>
-    <loc>http://xiejing2014.github.io/tags/informix/</loc>
+    <loc>http://xiejing2014.github.io/tags/regex/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -160,28 +160,7 @@
   </url>
   
   <url>
-    <loc>http://xiejing2014.github.io/tags/oracle-function/</loc>
-    <lastmod>2022-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiejing2014.github.io/tags/regex/</loc>
-    <lastmod>2022-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiejing2014.github.io/tags/clearcase/</loc>
-    <lastmod>2022-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiejing2014.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <loc>http://xiejing2014.github.io/tags/informix/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -216,6 +195,27 @@
   </url>
   
   <url>
+    <loc>http://xiejing2014.github.io/tags/oracle-function/</loc>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiejing2014.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiejing2014.github.io/tags/clearcase/</loc>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://xiejing2014.github.io/tags/gdb/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -232,7 +232,7 @@
   </url>
   
   <url>
-    <loc>http://xiejing2014.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</loc>
+    <loc>http://xiejing2014.github.io/categories/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -246,7 +246,7 @@
   </url>
   
   <url>
-    <loc>http://xiejing2014.github.io/categories/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/</loc>
+    <loc>http://xiejing2014.github.io/categories/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
