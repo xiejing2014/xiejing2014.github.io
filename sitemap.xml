@@ -146,13 +146,6 @@
 
   
   <url>
-    <loc>http://xiejing2014.github.io/tags/regex/</loc>
-    <lastmod>2022-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://xiejing2014.github.io/tags/oracle/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -167,14 +160,14 @@
   </url>
   
   <url>
-    <loc>http://xiejing2014.github.io/tags/informix/</loc>
+    <loc>http://xiejing2014.github.io/tags/clearcase/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://xiejing2014.github.io/tags/clearcase/</loc>
+    <loc>http://xiejing2014.github.io/tags/informix/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -210,6 +203,13 @@
   
   <url>
     <loc>http://xiejing2014.github.io/tags/C-C/</loc>
+    <lastmod>2022-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiejing2014.github.io/tags/regex/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
